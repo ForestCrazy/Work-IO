@@ -6,16 +6,22 @@
             <input type="text" class="form-control" name="id" id="id" value="" readonly>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="form-group">
             <label for="in-working">เวลาเข้างาน</label>
             <input type="text" class="form-control" name="in-working" id="in-working" value="" readonly>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="form-group">
             <label for="out-working">เวลาออกงาน</label>
             <input type="text" class="form-control" name="out-working" id="out-working" value="" readonly>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+            <label for="save-working">ลงเวลา</label>
+            <button type="submit" class="form-control btn btn-outline-success" name="save-working" id="save-working">บันทึกเวลา</button>
         </div>
     </div>
 </div>
