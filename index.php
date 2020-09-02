@@ -11,10 +11,21 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center">Work I-O ระบบบันทึกเวลาทำงาน</h1>
+        <h1 class="text-center">Work IO ระบบบันทึกเวลาทำงาน</h1>
+        <br>
         <div class="row">
             <div class="col-sm-3">
-                img
+                <div class="col-12">
+                    <img src="data/employee.png" alt="" class="img-fluid h-100 w-100">
+                    <span class="badge badge-secondary">หัวหน้าฝ่ายไอที</span>
+                </div>
+                <br>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="">แดชบอร์ด</a></li>
+                        <li class="list-group-item"><a href="">ลางาน</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="col-sm-9">
                 <?php
@@ -26,16 +37,8 @@
                 }
                 if ($_GET["page"] == "dashboard") {
                     include_once __DIR__ . '/page/dashboard.php';
-                } elseif ($_GET['page'] == "announce") {
-                    include_once __DIR__ . '/page/announce.php';
-                } elseif ($_GET['page'] == "task") {
-                    include_once __DIR__ . '/page/task.php';
                 } elseif ($_GET['page'] == "leave") {
                     include_once __DIR__ . '/page/leave.php';
-                } elseif ($_GET['page'] == "note") {
-                    include_once __DIR__ . '/page/note.php';
-                } elseif ($_GET['page'] == "result") {
-                    include_once __DIR__ . '/page/result.php';
                 } elseif ($_GET['page'] == "login") {
                     include_once __DIR__ . '/page/login.php';
                 } elseif ($_GET['page'] == "logout") {
