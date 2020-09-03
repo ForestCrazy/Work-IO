@@ -1,32 +1,54 @@
+<?php
+require('system/connect.php');
+session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>I/O Working</title>
+    <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.14.0/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="text-center">Work IO ระบบบันทึกเวลาทำงาน</h1>
+        <h1 class="text-center"><b>Work IO ระบบบันทึกเวลาทำงาน</b></h1>
         <br>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
+            <?php
+            if (isset($_SESSION["usergroup"])) {
+            ?>
             <div class="col-sm-3">
                 <div class="col-12">
                     <img src="data/employee.png" alt="" class="img-fluid h-100 w-100">
-                    <span class="badge badge-secondary">หัวหน้าฝ่ายไอที</span>
                 </div>
                 <br>
                 <div>
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="">แดชบอร์ด</a></li>
-                        <li class="list-group-item"><a href="">ลางาน</a></li>
+                        <li class="list-group-item"><a href="?page=dashboard">แดชบอร์ด</a></li>
+                        <!--
+                        <li class="list-group-item"><a href="?page=leave">ลางาน</a></li>
+                        <?php
+                        if ($_SESSION["usergroup"] == "admin") {
+                            ?>
+                            <li class="list-group-item"><a href="?page=manageleave">จัดการการลางาน</a></li>
+                            <li class="list-group-item"><a href="?page=manageuser">จัดการบัญชี</a></li>
+                            <?php
+                        }
+                        ?>
+                        -->
+                        <li class="list-group-item"><a href="?page=logout">ออกจากระบบ</a></li>
                     </ul>
                 </div>
             </div>
+            <?php
+            }
+            ?>
             <div class="col-sm-9">
                 <?php
                 if (!$_GET) {
@@ -39,6 +61,8 @@
                     include_once __DIR__ . '/page/dashboard.php';
                 } elseif ($_GET['page'] == "leave") {
                     include_once __DIR__ . '/page/leave.php';
+                } elseif ($_GET['page'] == "manageleave") {
+                    include_once __DIR__ . '/page/manageleave.php';
                 } elseif ($_GET['page'] == "login") {
                     include_once __DIR__ . '/page/login.php';
                 } elseif ($_GET['page'] == "logout") {
