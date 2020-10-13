@@ -10,6 +10,7 @@ if ((!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_S
         if (isset($_GET["action"])) {
             if ($_GET["action"] == "new") {
     ?>
+    <h3>เพิ่มบัญชี </h3>
                 <form action="" method="POST">
                     <div class="row">
                         <div class="col-sm-6 form-group">
@@ -71,6 +72,7 @@ if ((!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_S
                 $res_user_info = mysqli_query($connect, $sql_user_info);
                 $fetch_user_info = mysqli_fetch_assoc($res_user_info);
                 ?>
+                <h3>แก้ไขข้อมูลบัญชี </h3>
                 <form action="" method="POST">
                     <div class="row">
                         <div class="col-sm-6 form-group">

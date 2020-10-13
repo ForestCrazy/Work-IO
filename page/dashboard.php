@@ -40,10 +40,10 @@ if (!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_SE
                 <input type="text" class="form-control" name="out-working" id="out-working" <?php
                                                                                             if (isset($fetch_time['type'])) {
                                                                                                 if ($fetch_time["type"] == "work") {
-                                                                                                    if ($fetch_time['workout'] == "") {
+                                                                                                    if ($fetch_time['workout'] != "") {
                                                                                                         echo 'value="' . $fetch_time['workout'] . '"';
                                                                                                     } else {
-                                                                                                        echo 'value="ยังไม่ลงเวลา"';
+                                                                                                        echo 'value="ยังไม่ได้ลงเวลา"';
                                                                                                     }
                                                                                                 } else {
                                                                                                     echo 'value="ลางาน"';
