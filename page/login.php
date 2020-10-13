@@ -30,31 +30,32 @@ if (isset($_SESSION["username"]) or isset($_SESSION["usergroup"])) {
         if ($res_login) {
             if (mysqli_num_rows($res_login) == 1) {
                 if ($fetch_login["password"] == $password) {
-                    $msg_alert = 'ล็อกอินสำเร็จ';
+                    $msg_title = 'ล็อกอินสำเร็จ';
                     $msg = 'ทำการล็อกอินสำเร็จ';
                     $msg_icon = 'success';
 
-                    $_SESSION["username"] = $username;
+                    $_SESSION["user_id"] = $fetch_login["user_id"];
+                    $_SESSION["username"] = $fetch_login["username"];
                     $_SESSION["usergroup"] = $fetch_login["group"];
                 } else {
-                    $msg_alert = 'ล็อกอินไม่สำเร็จ';
+                    $msg_title = 'ล็อกอินไม่สำเร็จ';
                     $msg = 'รหัสผ่านไม่ถูกต้อง';
                     $msg_icon = 'error';
                 }
             } else {
-                $msg_alert = 'ล็อกอินไม่สำเร็จ';
+                $msg_title = 'ล็อกอินไม่สำเร็จ';
                 $msg = 'ไม่พบชื่อผู้ใช้นี้ในระบบ';
                 $msg_icon = 'error';
             }
         } else {
-            $msg_alert = 'ล็อกอินไม่สำเร็จ';
+            $msg_title = 'ล็อกอินไม่สำเร็จ';
             $msg = 'เกิดข้อผิดพลาดในการล็อกอิน';
             $msg_icon = 'error';
         }
     ?>
         <script>
             Swal.fire(
-                '<?php echo $msg_alert ?>',
+                '<?php echo $msg_title ?>',
                 '<?php echo $msg ?>',
                 '<?php echo $msg_icon ?>'
             ).then((value) => {
