@@ -12,8 +12,7 @@
             <div class="width-cus"></div>
             <div class="form-group">
                 <select class="form-control" name="leave_type" id="leave_type" required>
-                    <option disabled selected>ประเภทการลา</option>
-                    <option value="casual">ลางาน</option>
+                    <option value="casual" selected>ลางาน</option>
                     <option value="sick">ล่าป่วย</option>
                 </select>
             </div>

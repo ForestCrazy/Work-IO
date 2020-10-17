@@ -91,11 +91,17 @@ if (!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_SE
                             } else {
                                 echo 'ลางาน';
                             } ?></td>
-                        <td><?php if ($fetch_timelist["workout"] != "") {
-                                echo $fetch_timelist["workout"];
+                        <td><?php
+                            if ($fetch_timelist["workin"] != "") {
+                                if ($fetch_timelist["workout"] != "") {
+                                    echo $fetch_timelist["workout"];
+                                } else {
+                                    echo 'ยังไม่ได้ลงเวลา';
+                                }
                             } else {
                                 echo 'ลางาน';
-                            } ?></td>
+                            } ?>
+                        </td>
                     </tr>
             <?php
                 }
