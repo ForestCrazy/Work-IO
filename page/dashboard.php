@@ -74,7 +74,7 @@ if (!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_SE
         </thead>
         <tbody>
             <?php
-            $query_time = 'SELECT * FROM work_io WHERE user_id = "' . $_SESSION["user_id"] . '" ORDER BY io_id DESC';
+            $query_time = 'SELECT * FROM work_io WHERE user_id = "' . $_SESSION["user_id"] . '" ORDER BY io_id DESC LIMIT 30';
             $result_time = mysqli_query($connect, $query_time);
             if (mysqli_num_rows($result_time) == 0) {
             ?>
@@ -86,21 +86,31 @@ if (!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_SE
                     <tr>
                         <th scope="row"><?php echo $fetch_timelist["io_id"]; ?></th>
                         <td><?php echo date("d/m/Y", strtotime($fetch_timelist["workdate"])); ?></td>
-                        <td><?php if ($fetch_timelist["workin"] != "") {
-                                echo $fetch_timelist["workin"];
-                            } else {
-                                echo 'ลางาน';
-                            } ?></td>
-                        <td><?php
-                            if ($fetch_timelist["workin"] != "") {
-                                if ($fetch_timelist["workout"] != "") {
-                                    echo $fetch_timelist["workout"];
+                        <td>
+                            <?php
+                            if ($fetch_timelist["type"] == "work") {
+                                if ($fetch_timelist["workin"] != "") {
+                                    echo $fetch_timelist["workin"];
                                 } else {
-                                    echo 'ยังไม่ได้ลงเวลา';
+                                    echo 'ยังไม่ลงเวลา';
                                 }
                             } else {
                                 echo 'ลางาน';
-                            } ?>
+                            }
+                            ?>
+                        </td>
+                        <td>
+                        <?php
+                            if ($fetch_timelist["type"] == "work") {
+                                if ($fetch_timelist["workout"] != "") {
+                                    echo $fetch_timelist["workout"];
+                                } else {
+                                    echo 'ยังไม่ลงเวลา';
+                                }
+                            } else {
+                                echo 'ลางาน';
+                            }
+                            ?>
                         </td>
                     </tr>
             <?php

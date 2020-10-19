@@ -77,7 +77,7 @@ if ((!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_S
                     <div class="row">
                         <div class="col-sm-6 form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username" name="username" value="<?php echo $fetch_user_info['username']; ?>" class="form-control" disabled>
+                            <input type="text" id="username" name="username" value="<?php echo $fetch_user_info['username']; ?>" class="form-control" disabled readonly>
                         </div>
                         <div class="col-sm-6 form-group">
                             <label for="FirstName">FirstName</label>
@@ -98,23 +98,23 @@ if ((!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_S
                                                         } ?>>admin</option>
                             </select>
                         </div>
-                        <input type="hidden" name="submit_create_user">
+                        <input type="hidden" name="submit_edit_user">
                         <div class="col-12">
                             <button type="submit" class="btn btn-success w-100">บันทึกข้อมูล</button>
                         </div>
                     </div>
                 </form>
                 <?php
-                if (isset($_POST["submit_create_user"])) {
-                    $sql_insert_user = 'UPDATE account SET `firstname` = "' . mysqli_real_escape_string($connect, $_POST["firstname"]) . '", `lastname` = "' . mysqli_real_escape_string($connect, $_POST["lastname"]) . '", `group` = "' . mysqli_real_escape_string($connect, $_POST["group"]) . '" WHERE user_id = "' . $fetch_user_info['user_id'] . '"';
-                    $res_insert_user = mysqli_query($connect, $sql_insert_user);
-                    if ($res_insert_user) {
+                if (isset($_POST["submit_edit_user"])) {
+                    $sql_edit_user = 'UPDATE account SET `firstname` = "' . mysqli_real_escape_string($connect, $_POST["firstname"]) . '", `lastname` = "' . mysqli_real_escape_string($connect, $_POST["lastname"]) . '", `group` = "' . mysqli_real_escape_string($connect, $_POST["group"]) . '" WHERE user_id = "' . $fetch_user_info['user_id'] . '"';
+                    $res_edit_user = mysqli_query($connect, $sql_edit_user);
+                    if ($res_edit_user) {
                         $msg_title = 'สำเร็จ';
                         $msg = 'เพิ่มบัญชีผู้ใช้สำเร็จ';
                         $msg_icon = 'success';
                     } else {
                         $msg_title = 'ผิดพลาด';
-                        $msg = $sql_insert_user;
+                        $msg = 'เกิดข้อผิดพลาดในการเพิ่มบัญชีผู้ใช้';
                         $msg_icon = 'error';
                     }
                 ?>

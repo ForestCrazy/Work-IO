@@ -53,6 +53,7 @@ if (!is_file('system/config.php')) {
                                 ?>
                                     <li class="list-group-item"><a href="?page=manageleave">จัดการการลางาน</a></li>
                                     <li class="list-group-item"><a href="?page=manageuser">จัดการบัญชี</a></li>
+                                    <li class="list-group-item"><a href="?page=iolist">การลงชื่อ เข้า-ออก ทั้งหมด</a></li>
                                 <?php
                                 }
                                 ?>
@@ -68,6 +69,9 @@ if (!is_file('system/config.php')) {
                     if (!$_GET) {
                         $_GET["page"] = 'dashboard';
                     }
+                    if (!isset($_GET["page"])) {
+                        $_GET["page"] = "dashboard";
+                    }
                     if (!$_GET["page"]) {
                         $_GET["page"] = "dashboard";
                     }
@@ -81,6 +85,8 @@ if (!is_file('system/config.php')) {
                         include_once __DIR__ . '/page/manageleave.php';
                     } elseif ($_GET['page'] == "manageuser") {
                         include_once __DIR__ . '/page/manageuser.php';
+                    } elseif ($_GET['page'] == "iolist") {
+                        include_once __DIR__ . '/page/iolist.php';
                     } elseif ($_GET['page'] == "login") {
                         include_once __DIR__ . '/page/login.php';
                     } elseif ($_GET['page'] == "logout") {
