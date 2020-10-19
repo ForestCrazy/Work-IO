@@ -7,8 +7,8 @@
 
 ## การติดตั้ง
   1. อัพโหลดโค้ดที่ดาวน์โหลดทั้งหมดขึ้นไปที่ server
-  2. เรียกตัวติดตั้ง http://domain.tld/install/ (เปลี่ยน domain.tld เป็น URL รวม path ที่ติดตั้งสคริปต์)
-  3. ลบไดเร็คทอรี่ install/ ออก
+  2. เรียกตัวติดตั้ง http://domain.tld/install/ (เปลี่ยน domain.tld เป็น URL รวม path ที่ติดตั้งสคริปต์) เช่น `localhost/work-io/install/`
+  3. ลบไดเร็คทอรี่(โฟลเดอร์) install ออก
   
 ## การใช้งาน
   เข้าระบบเป็นผู้ดูแลระบบ : `Admin` และ Password : `123456`
