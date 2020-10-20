@@ -19,10 +19,10 @@
         </div>
         <div id="date-picker-start-leave" class="md-form md-outline input-with-post-icon datepicker" inline="true">
             <label for="leave_date_start">ตั้งแต่วันที่</label>
-            <input placeholder="Select date" type="date" id="leave_date_start" name="leave_date_start" class="form-control">
+            <input placeholder="Select date" type="date" id="leave_date_start" name="leave_date_start" class="form-control" min="<?php echo date("Y-m-d"); ?>" oninput='document.getElementById("leave_date_end").min = this.value;'>
             <i class="fas fa-calendar input-prefix"></i>
         </div>
-        <div id="date-picker-end-leave" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+        <div id="date-picker-end-leave" class="md-form md-outline input-with-post-icon datepicker" inline="true" oninput='document.getElementById("leave_date_start").max = this.value;'>
             <label for="leave_date_end">ถึงวันที่</label>
             <input placeholder="Select date" type="date" id="leave_date_end" name="leave_date_end" class="form-control">
             <i class="fas fa-calendar input-prefix"></i>
