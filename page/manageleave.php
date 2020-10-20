@@ -110,7 +110,7 @@ if (!isset($_SESSION["user_id"]) or !isset($_SESSION["username"]) or !isset($_SE
                     $msg_icon = 'error';
                 }
             } elseif (isset($_POST["leave_reject"])) {
-                $sql_update_leave = 'UPDATE leave_list SET leave_status = "rejected" WHERE leave_id = "' . mysqli_real_escape_string($connect, $_POST["leave_accept"]) . '"';
+                $sql_update_leave = 'UPDATE leave_list SET leave_status = "rejected" WHERE leave_id = "' . mysqli_real_escape_string($connect, $_POST["leave_reject"]) . '"';
                 $res_update_leave = mysqli_query($connect, $sql_update_leave);
                 if ($res_update_leave) {
                     $msg_title = 'สำเร็จ';
